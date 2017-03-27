@@ -22,7 +22,9 @@
 
     <!-- Custom Fonts -->
     <link href="public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    
+    <!-- CSS PARA PROFESORES-->
+    <link href="public/css/profesores.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -114,11 +116,28 @@
                         </ul>
                     </li> 
                     <!-- FIN PERIODO CUATRIMESTRAL-->     
-
+                    
+                    <!-- INICIA GESTION DE PROFESORES-->
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#opc-GPR"><i class="fa fa-fw fa-arrows-v"></i> Gestionar Profesor <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="opc-GPR" class="collapse">
+                            <li>
+                                <a href="#" class="newProfesor">Alta Profesor</a>
+                            </li>
+                            <li>
+                                <a href="#" class="editProfesor">Editar Profesor</a>
+                            </li>
+                        </ul>
+                    </li> 
+                    <!-- FIN DE GESTION DE PROFESORES-->
+                    
                     <!-- GESTIONAR -->
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#opc-GP"><i class="fa fa-fw fa-arrows-v"></i> Gestionar Alumno <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="opc-GP" class="collapse">
+                            <li>
+                                <a href="#" class="preinscripcionAlumno">Preinscripción</a>
+                            </li>
                             <li>
                                 <a href="#">Inscripcion</a>
                             </li>
@@ -143,7 +162,19 @@
                             </li>                            
                         </ul>
                     </li> 
-                    <!-- FIN -->                       
+                    <!-- FIN -->
+
+                    <!-- GESTIONAR -->
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#opc-pruebas"><i class="fa fa-fw fa-arrows-v"></i> Ejemplo Prueba <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="opc-pruebas" class="collapse">
+                            <li>
+                                <a id="prueba" href="#">Mostrar P</a>
+                            </li>    
+                        </ul>
+                    </li> 
+                    <!-- FIN -->  
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -154,7 +185,7 @@
             <div id="render" class="container-fluid">
 
                 <p>Page wrapper contenido</p>
-                <?php require_once('controller/ControladorIndex.php'); ?>
+                <!--?php require_once('controller/ControladorIndex.php'); ?-->
                 
             </div>
             <!-- /.container-fluid -->
@@ -172,6 +203,8 @@
     <script src="public/js/bootstrap.min.js"></script>
 
     <script src="public/js/ajax.js"></script>
+    <script src="public/js/profesores.js"></script>
+    <script src="public/js/prueba.js"></script>
 
     <!-- Morris Charts JavaScript -->
     <script src="public/js/plugins/morris/raphael.min.js"></script>

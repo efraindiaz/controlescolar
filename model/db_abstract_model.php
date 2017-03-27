@@ -4,7 +4,7 @@ protected $query;
 protected $rows = array();
 protected $arrayResult = array();
 private $conn;
-public $mensaje = 'Hecho';
+public $mensaje = "OK";
 # métodos abstractos para ABM de clases que hereden
 abstract protected function get();
 abstract protected function set();
@@ -17,7 +17,7 @@ private function open_connection() {
 
 //$conn =	null;
 	$host = 'localhost';
-	$db = 	'diary';
+	$db = 	'control_escolar';
 	$user = 'root';
 	$pwd = 	'';
 
@@ -36,27 +36,40 @@ private function open_connection() {
 }
 # Desconectar la base de datos
 private function close_connection() {
-$this->conn->close();
+$this->conn = null;
 }
+
 # Ejecutar un query simple del tipo INSERT, DELETE, UPDATE
 protected function execute_single_query() {
-if($_POST) {
-$this->open_connection();
-$this->conn->query($this->query);
-$this->close_connection();
-} else {
-$this->mensaje = 'Metodo no permitido';
-}
+	if($_POST) {
+
+		try{
+			$this->open_connection();
+			$this->conn->query($this->query);
+			$this->close_connection();
+		}catch(PDOException $e){
+			$this->mensaje = 'error';
+		}
+
+	} else {
+	$this->mensaje = 'Metodo no permitido';
+	}
+
+	return $this->mensaje;
 }
 #aux
 protected function execute_single_query1() {
-if($_GET) {
-$this->open_connection();
-$this->conn->query($this->query);
-$this->close_connection();
-} else {
-$this->mensaje = 'Metodo no permitido';
-}
+	if($_GET) {
+		try{
+			$this->open_connection();
+			$this->conn->query($this->query);
+			$this->close_connection();
+		}catch(PDOException $e){
+			$this->mensaje = 'error';
+		}
+	} else {
+	$this->mensaje = 'Metodo no permitido';
+	}
 }
 
 #aux
@@ -65,8 +78,6 @@ $this->mensaje = 'Metodo no permitido';
 # Traer resultados de una consulta en un Array
 protected function get_results_from_query() {
 
-	//$sql = "SELECT * FROM contacts WHERE idUser = ".$idUser;
-	//print $this->query;
 	$this->conn = DBAbstractModel::open_connection();
 
 	$result = $this->conn->query($this->query);
@@ -79,8 +90,6 @@ protected function get_results_from_query() {
 	}
 
 	return  $this->arrayResult;
-
-
 }
 
 }

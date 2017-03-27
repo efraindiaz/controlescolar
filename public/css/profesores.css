@@ -1,0 +1,15 @@
+.emptyProfesores{
+	padding: 2%;
+}
+
+.tableProfesores tbody .edit{
+	color: #5bc0de;
+	cursor: pointer;
+
+}
+
+.tableProfesores tbody .delete{
+	color: red;
+	cursor: pointer;
+	margin-left: 10%;
+}

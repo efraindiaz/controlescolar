@@ -9,9 +9,6 @@ $zona = set_obj();
 $resultado = $zona->get();
 
 require_once('view/VistaIndex.php');
-
-
-
 }
 
 function set_obj(){

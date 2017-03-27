@@ -6,14 +6,14 @@ class Modelo_Index extends DBAbstractModel {
 ############################### PROPIEDADES ################################
 
 // ctaid,ctadesc
-/*public $ctadesc;
+public $ctadesc;
 public $ctaid;
-public $datos;*/
+public $datos;
 ################################# MÉTODOS ##################################
 # Traer datos de utperclavena agencia
 public function get() {
 
-$this->query = "SELECT * from contacts";
+$this->query = "SELECT * from profesor";
 
 
 return  $this->get_results_from_query();
@@ -22,6 +22,7 @@ return  $this->get_results_from_query();
 
 # Crear un nuevo 
 public function set() {
+	
 }
 
 # Modificar un 
@@ -34,7 +35,7 @@ public function delete($tzonclave='') {
 }
 # Método constructor
 function __construct() {
-$this->db_name = 'diary';
+$this->db_name = 'control_escolar';
 }
 # Método destructor del objeto
 function __destruct() {
