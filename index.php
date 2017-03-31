@@ -105,13 +105,13 @@
 
                         <ul id="opc-GPerCua" class="collapse">
                             <li>
-                                <a id="" href="javascript:;">Alta Periodo</a>
+                                <a id="altaPeriodoCuatri" href="javascript:;">Alta Periodo</a>
                             </li>
                             <li>
-                                <a href="#">Editar Periodo</a>
+                                <a id="editarPeriodoCuatri" href="javascript:;">Editar Periodo</a>
                             </li>
                             <li>
-                                <a href="">Asignar Materias</a>
+                                <a id="AddMateriasCuatri" href="javascript:;">Asignar Materias</a>
                             </li>
                         </ul>
                     </li> 
@@ -202,8 +202,8 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="public/js/bootstrap.min.js"></script>
 
-    <script src="public/js/ajax.js"></script>
     <script src="public/js/profesores.js"></script>
+    <script src="public/js/GestionarCuatrimestre.js"></script>
     <script src="public/js/prueba.js"></script>
 
     <!-- Morris Charts JavaScript -->
