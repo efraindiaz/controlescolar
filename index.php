@@ -166,6 +166,9 @@
                             <li>
                                 <a href="#" class="editAlumno">Editar Alumno</a>
                             </li>
+                            <li>
+                                <a href="#" class="editEstudiante">Editar Estudiante</a>
+                            </li>
                         </ul>
                     </li> 
                     <!-- FIN -->
@@ -250,7 +253,6 @@
     <script src="public/js/profesores.js"></script>
     <script src="public/js/GestionarCuatrimestre.js"></script>
 =======
-    <script src="public/js/ajax.js"></script>
     <script src="public/js/preinscripcionAlumno.js"></script>
     <script src="public/js/gestionarGrupo.js"></script>
     <script src="public/js/gestionarHorario.js"></script>
@@ -259,7 +261,7 @@
     <script src="public/js/prueba.js"></script>
     <script src="public/js/profesores.js"></script>
     <script src="public/js/alumnos.js"></script>
-
+    <script src="public/js/estudiantes.js"></script>
     <!-- Morris Charts JavaScript -->
     <script src="public/js/plugins/morris/raphael.min.js"></script>
     <script src="public/js/plugins/morris/morris.min.js"></script>
