@@ -158,13 +158,13 @@
                                 <a href="#" class="preinscripcionAlumno">Preinscripción</a>
                             </li>
                             <li>
-                                <a href="#">Inscripcion</a>
+                                <a href="#" class="newAlumno">Inscripcion</a>
                             </li>
                             <li>
                                 <a href="#">Reinscripcion</a>
                             </li>
                             <li>
-                                <a href="">Editar Alumno</a>
+                                <a href="#" class="editAlumno">Editar Alumno</a>
                             </li>
                         </ul>
                     </li> 
@@ -258,6 +258,7 @@
 >>>>>>> origin/master
     <script src="public/js/prueba.js"></script>
     <script src="public/js/profesores.js"></script>
+    <script src="public/js/alumnos.js"></script>
 
     <!-- Morris Charts JavaScript -->
     <script src="public/js/plugins/morris/raphael.min.js"></script>
