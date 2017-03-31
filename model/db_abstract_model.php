@@ -48,7 +48,7 @@ protected function execute_single_query() {
 			$this->conn->query($this->query);
 			$this->close_connection();
 		}catch(PDOException $e){
-			$this->mensaje = 'error';
+			$this->mensaje = 'error'. $e;
 		}
 
 	} else {

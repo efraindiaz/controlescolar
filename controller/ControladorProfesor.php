@@ -52,6 +52,10 @@ function handler() {
 		$zona->datos($nivele, $matriculae,$passe,$nombrese,$ap_mate,$ap_pate,$statuse);
 
 		$res = $zona->edit();
+	}elseif ($typeQuery == "eliminar") {
+		$idProfesor = $_REQUEST['idProfesor'];
+
+		$res = $zona->deleteProfesor($idProfesor);
 	}
 
 	echo $res;
