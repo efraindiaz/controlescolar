@@ -61,7 +61,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Control Escolar</a>
+                <a class="navbar-brand" href="index.php">Control Escolar</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -249,15 +249,13 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="public/js/bootstrap.min.js"></script>
 
-<<<<<<< HEAD
     <script src="public/js/profesores.js"></script>
     <script src="public/js/GestionarCuatrimestre.js"></script>
-=======
+
     <script src="public/js/preinscripcionAlumno.js"></script>
     <script src="public/js/gestionarGrupo.js"></script>
     <script src="public/js/gestionarHorario.js"></script>
     <script src="public/js/gestionarReinscripcion.js"></script>
->>>>>>> origin/master
     <script src="public/js/prueba.js"></script>
     <script src="public/js/profesores.js"></script>
     <script src="public/js/alumnos.js"></script>
