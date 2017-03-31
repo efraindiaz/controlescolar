@@ -246,16 +246,13 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="public/js/bootstrap.min.js"></script>
 
-<<<<<<< HEAD
     <script src="public/js/profesores.js"></script>
     <script src="public/js/GestionarCuatrimestre.js"></script>
-=======
     <script src="public/js/ajax.js"></script>
     <script src="public/js/preinscripcionAlumno.js"></script>
     <script src="public/js/gestionarGrupo.js"></script>
     <script src="public/js/gestionarHorario.js"></script>
     <script src="public/js/gestionarReinscripcion.js"></script>
->>>>>>> origin/master
     <script src="public/js/prueba.js"></script>
     <script src="public/js/profesores.js"></script>
     <script src="public/js/alumnos.js"></script>
