@@ -5,37 +5,43 @@ $formNewProfesor =
 		<h1 class="text-center">Nuevo Profesor</h1>
 		<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
 		<hr>
+		<div class="form-group">
+			<div class="alert alert-danger" id="feedbackAlertProfesor" role="alert" style="display:none;">
+				Verifique sus datos por favor!
+			</div>
+		</div>
 		<form class="formProfesor" method="post">
 			<input type="hidden" name="typeQuery" class="typeQuery" value="insert">
 			<div class="form-group">
 				<label for="nivel">Seleccione un nivel de usuario</label>
 				<select class="nivel form-control" name="nivel">
+					<option selected="" disabled value="0">Selecciona Nivel Del Profesor</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<label for="matricula">Matricula</label>
-				<input type="text" name="matricula" placeholder="Ingrese Matricula" class="form-control matricula">
+				<input type="text" name="matricula" class="form-control matricula">
 			</div>
 			<div class="form-group">
-				<label for="nombre">Nombre(s)</label>
-				<input type="text" name="nombre" placeholder="Ingrese su nombre" class="form-control nombre">
+				<label for="nombre">Nombre(s) Del Profesor</label>
+				<input type="text" name="nombre" class="form-control nombre">
 			</div>
 			<div class="form-group">
 				<label for="apellidoM">Apellido Materno</label>
-				<input type="text" name="apellidoM" placeholder="Ingrese Apellido Materno" class="form-control apellidoM">
+				<input type="text" name="apellidoM" class="form-control apellidoM">
 			</div>
 			<div class="form-group">
 				<label for="apellidoP">Apellido Paterno</label>
-				<input type="text" name="apellidoP" placeholder="Ingrese Apellido Paterno" class="form-control apellidoP">
+				<input type="text" name="apellidoP" class="form-control apellidoP">
 			</div>
 			<div class="form-group">
 				<label for="contraseña">Contraseña</label>
-				<input type="text" name="contraseña" placeholder="Ingrese contraseña" class="form-control contraseña">
+				<input type="password" name="contraseña" class="form-control contraseña">
 			</div>
 			<hr>
 			<div class="col-md-12" style="margin-top: 15px;">
 				<div class="actions pull-right">	
-					<input type="button" class="btn btn-success" id="btnAceptarNewProfesor" value="Aceptar">
+					<input type="button" class="btn btn-primary" id="btnAceptarNewProfesor" value="Aceptar">
 				</div>
 			</div>
 		</form>
@@ -57,6 +63,6 @@ $formNewProfesor =
 	  </div>
 	</div>';
 
-print($formNewProfesor);
+echo $formNewProfesor;
 
 ?>

@@ -48,7 +48,7 @@
 </head>
 
 <body>
-
+    <input type="hidden" name="idLogin" class="idLogin" value="1">
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -130,7 +130,26 @@
                         </ul>
                     </li> 
                     <!-- FIN DE GESTION DE PROFESORES-->
-                    
+                    <!-- INICIA PREINSCRIPCION DEL ALUMNO-->
+                    <li>
+                        <a href="#" data-toggle="collapse" class="preinscripcionAlumno"><i class="fa fa-fw fa-arrows-v"></i> Preinscripción</a>
+                    </li> 
+                    <!--FIN PREINSCRIPCION DEL ALUMNO-->
+
+                    <!-- INICIA REINSCRIPCION-->
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#opc-REI"><i class="fa fa-fw fa-arrows-v"></i>Gestionar Reinscripción <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="opc-REI" class="collapse">
+                            <li>
+                                <a href="#" class="infoReinscripcion">Información</a>
+                            </li>
+                            <li>
+                                <a href="#" class="Reinscripcion">Realizar Reinscripción</a>
+                            </li>
+                        </ul>
+                    </li> 
+                    <!-- FIN DE REINSCRIPCION-->
+
                     <!-- GESTIONAR -->
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#opc-GP"><i class="fa fa-fw fa-arrows-v"></i> Gestionar Alumno <i class="fa fa-fw fa-caret-down"></i></a>
@@ -150,6 +169,31 @@
                         </ul>
                     </li> 
                     <!-- FIN -->
+                    <!-- INICIA GESTION DE GRUPOS-->
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#opc-GRU"><i class="fa fa-fw fa-arrows-v"></i> Gestionar Grupos <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="opc-GRU" class="collapse">
+                            <li>
+                                <a href="#" class="asignarProfesores">Asignar Profesores</a>
+                            </li>
+                        </ul>
+                    </li> 
+                    <!-- FIN DE GESTION DE GRUPOS-->
+                    
+                    <!-- INICIA GESTION DE HORARIO-->
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#opc-HORA"><i class="fa fa-fw fa-arrows-v"></i> Gestionar Horario <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="opc-HORA" class="collapse">
+                            <li>
+                                <a href="#" class="altaHorario">Alta Horario</a>
+                            </li>
+                            <li>
+                                <a href="#" class="editarHorario">Editar Horario</a>
+                            </li>
+                        </ul>
+                    </li> 
+                    <!-- FIN DE GESTION DE GRUPOS-->
+                    
                     <!-- GESTIONAR -->
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#opc-EJ"><i class="fa fa-fw fa-arrows-v"></i> Ejemplo <i class="fa fa-fw fa-caret-down"></i></a>
@@ -203,8 +247,12 @@
     <script src="public/js/bootstrap.min.js"></script>
 
     <script src="public/js/ajax.js"></script>
-    <script src="public/js/profesores.js"></script>
+    <script src="public/js/preinscripcionAlumno.js"></script>
+    <script src="public/js/gestionarGrupo.js"></script>
+    <script src="public/js/gestionarHorario.js"></script>
+    <script src="public/js/gestionarReinscripcion.js"></script>
     <script src="public/js/prueba.js"></script>
+    <script src="public/js/profesores.js"></script>
 
     <!-- Morris Charts JavaScript -->
     <script src="public/js/plugins/morris/raphael.min.js"></script>

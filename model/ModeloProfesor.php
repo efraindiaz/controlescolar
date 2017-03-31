@@ -67,6 +67,14 @@ class Modelo_Profesor extends DBAbstractModel {
 		return $res;
 	}
 
+	public function deleteProfesor($id_profesor){
+		$this->query = "DELETE FROM profesor WHERE id_profesor = '$id_profesor'";
+
+		$res = $this->execute_single_query();
+
+		return $res;
+	}
+
 	public function delete($tzonclave='') {
 
 	}
