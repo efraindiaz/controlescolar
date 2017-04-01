@@ -83,7 +83,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <!-- GESTIONAR CICLO ESCOLAR -->
                     <li>
@@ -165,6 +165,9 @@
                             </li>
                             <li>
                                 <a href="#" class="editAlumno">Editar Alumno</a>
+                            </li>
+                            <li>
+                                <a href="#" class="editEstudiante">Editar Estudiante</a>
                             </li>
                         </ul>
                     </li> 
@@ -255,7 +258,7 @@
     <script src="public/js/prueba.js"></script>
     <script src="public/js/profesores.js"></script>
     <script src="public/js/alumnos.js"></script>
-
+    <script src="public/js/estudiantes.js"></script>
     <!-- Morris Charts JavaScript -->
     <script src="public/js/plugins/morris/raphael.min.js"></script>
     <script src="public/js/plugins/morris/morris.min.js"></script>
