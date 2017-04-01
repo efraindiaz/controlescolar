@@ -1,4 +1,14 @@
+<div class="col-md-6 col-md-offset-3">
+	<div id="notificationSuccess" class="form-group" style="display:none">
+		 <div class="alert alert-success alert-dismissable">
+		    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+		    <strong>Exito!</strong> Se guardo la informacion satisfactoriamente.
+		  </div>
+	</div>
+</div>
+
 <div class="col-md-4 col-md-offset-4">
+
 		<h3 class="text-center">Nuevo Periodo Cuatrimestral</h3>
 		
 		<?php if($data == null){?>
@@ -29,11 +39,11 @@
 			</div>
 			<div class="form-group">
 				<label for="">Fecha Inicio: </label>
-				<input type="date" class="form-control" name="fecha_ini">
+				<input id="myDateStart" type="date" class="form-control" name="fecha_ini" onchange="myDate();" min="<?php print $data[0]['ciclo_ini'];?>" required>
 			</div>
 			<div class="form-group">
 				<label for="">Fecha fin: </label>
-				<input type="date" class="form-control" name="fecha_fin">
+				<input id="myDateEnd" type="date" class="form-control" name="fecha_fin" max="<?php print $data[0]['ciclo_fin'];?>" required>
 			</div>
 			<div class="form-group">
 				<label for="">Status: </label>

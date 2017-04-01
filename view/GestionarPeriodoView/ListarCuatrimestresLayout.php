@@ -3,24 +3,24 @@
 		<tr>
 			<th>Ciclo</th>
 			<th>Cuatrimestre</th>
-			<th>Fecha Inici</th>
+			<th>Fecha Inicio</th>
 			<th>Fecha Fin</th>
 			<th>Status</th>
 			<th></th>
 			<th></th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="text-center">
 
 		<?php 
 			foreach ($listCuatrimestre as $cuatri) {
 		?>
 		<tr>
-			<td><?php print $cuatri['id_ciclo'];?></td>
-			<td><?php print $cuatri['numero_cuatri'];?></td>
-			<td><?php print $cuatri['fecha_ini'];?></td>
-			<td><?php print $cuatri['fecha_fin'];?></td>
-			<td><?php print $cuatri['stado_cuatri'] ?></td>
+			<td><?php print $cuatri['ciclo_ini'].'|'.$cuatri['ciclo_fin'];?></td>
+			<td><?php print $cuatri['num_cuatri'];?></td>
+			<td><?php print $cuatri['cuatri_ini'];?></td>
+			<td><?php print $cuatri['cuatri_fin'];?></td>
+			<td><?php print $cuatri['cuatri_status'] ?></td>
 			<?php if($btn == 'update'){ ?>
 			<td><a class="btn btn-warning btn-xs" onclick="searchInfoForUpdate(<?php print $cuatri['id_cuatri']; ?>);">Modificar</a></td>
 			<?php }elseif($btn == 'addSubject'){?>

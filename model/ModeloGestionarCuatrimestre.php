@@ -1,4 +1,9 @@
 <?php
+/*******************************************/
+//MODULO GESTIONAR PERIODO CUATRIMESTRAL
+/******************************************/
+// Modelo desarrollado por Efrain Diaz
+// para la materia de Reingenieria
 
 require_once('db_abstract_model.php');
 
@@ -30,8 +35,11 @@ class Modelo_GestionarCuatrimestre extends DBAbstractModel {
 
 	}
 
-	public function datosEditCuatri($stado_cuatri){
+	public function datosEditCuatri($numero_cuatri, $fecha_ini, $fecha_fin, $stado_cuatri){
 		$this->stado_cuatri = $stado_cuatri;
+		$this->numero_cuatri = $numero_cuatri;
+		$this->fecha_fin = $fecha_fin;
+		$this->fecha_ini = $fecha_ini;
 	}
 
 	public function stringQuery($queryString){
@@ -59,22 +67,18 @@ class Modelo_GestionarCuatrimestre extends DBAbstractModel {
 
 	}
 
-	public function getNivelSistema(){
-		$this->query = "SELECT * FROM nivel_sistema";
-		$niveles = $this->get_results_from_query();
-
-		return $niveles;
-	}
 
 	public function getRTCuatrimestre() {
-		$this->query = "SELECT * FROM cuatrimestre WHERE numero_cuatri LIKE '%$this->queryString%' OR fecha_ini LIKE '%$this->queryString%' OR fecha_fin LIKE '%$this->queryString%' OR stado_cuatri LIKE '%$this->queryString%'";
+		
+		$this->query = "SELECT ciclo.ciclo_ini as ciclo_ini, ciclo.ciclo_fin as ciclo_fin, cu.id_cuatri as id_cuatri, cu.numero_cuatri as num_cuatri, cu.fecha_ini as cuatri_ini, cu.fecha_fin as cuatri_fin, cu.stado_cuatri as cuatri_status from cuatrimestre cu INNER JOIN ciclo on cu.id_ciclo = ciclo.id_ciclo WHERE cu.numero_cuatri LIKE '%$this->queryString%' OR cu.fecha_ini LIKE '%$this->queryString%' OR cu.fecha_fin LIKE '%$this->queryString%' OR cu.stado_cuatri LIKE '%$this->queryString%'";
+		//$this->query = "SELECT * FROM cuatrimestre WHERE numero_cuatri LIKE '%$this->queryString%' OR fecha_ini LIKE '%$this->queryString%' OR fecha_fin LIKE '%$this->queryString%' OR stado_cuatri LIKE '%$this->queryString%'";
 		$cuatrimestre = $this->get_results_from_query();
 		
 		return $cuatrimestre;
 	}
 
 	public function getRTMaterias(){
-
+		//$this->query ="SELECT ciclo.ciclo_ini as ciclo_ini, ciclo.ciclo_fin as ciclo_fin, cu.id_cuatri as id_cuatri, cu.numero_cuatri as num_cuatri, cu.fecha_ini as cuatri_ini, cu.fecha_fin as cuatri_fin, cu.stado_cuatri as cuatri_status from cuatrimestre cu INNER JOIN ciclo on cu.id_ciclo = ciclo.id_ciclo WHERE codigo_materia LIKE '%$this->queryString%' OR nombre_materia LIKE '%$this->queryString%' OR des_materia LIKE '%$this->queryString%'";
 		$this->query = "SELECT * FROM materia WHERE codigo_materia LIKE '%$this->queryString%' OR nombre_materia LIKE '%$this->queryString%' OR des_materia LIKE '%$this->queryString%'";
 		$materias = $this->get_results_from_query();
 		
@@ -104,7 +108,7 @@ class Modelo_GestionarCuatrimestre extends DBAbstractModel {
  
 	public function edit() {
 
-		$this->query = "UPDATE cuatrimestre SET stado_cuatri = '$this->stado_cuatri' WHERE id_cuatri = '$this->queryString'";
+		$this->query = "UPDATE cuatrimestre SET numero_cuatri = '$this->numero_cuatri', fecha_ini = '$this->fecha_ini', fecha_fin = '$this->fecha_fin', stado_cuatri = '$this->stado_cuatri' WHERE id_cuatri = '$this->queryString'";
 		$res = $this->execute_single_query();
 
 		return $res;

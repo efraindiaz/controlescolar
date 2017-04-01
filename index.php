@@ -248,7 +248,6 @@
 
     <script src="public/js/profesores.js"></script>
     <script src="public/js/GestionarCuatrimestre.js"></script>
-    <script src="public/js/ajax.js"></script>
     <script src="public/js/preinscripcionAlumno.js"></script>
     <script src="public/js/gestionarGrupo.js"></script>
     <script src="public/js/gestionarHorario.js"></script>

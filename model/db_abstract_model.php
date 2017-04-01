@@ -1,4 +1,12 @@
 <?php
+
+/*******************************************/
+//DBA
+/******************************************/
+// Adaptado por Efrain Diaz y Eduardo Tun
+// para la materia de Reingenieria
+
+
 abstract class DBAbstractModel {
 protected $query;
 protected $rows = array();

@@ -1,3 +1,4 @@
+//JS por Efrain Diaz para Modulo Gestionar Periodo
 $(function(){
 
 
@@ -28,6 +29,7 @@ $(function(){
 
 })
 
+//muestra formulario para editar materia
 function displayForEdit(){
 	var aux = 'forEdit';
 	$.ajax({
@@ -40,6 +42,7 @@ function displayForEdit(){
 	});
 }
 
+//formulario para añadir materias
 function displayForAddSubject(){
 	var aux = 'forAddSubject';
 	$.ajax({
@@ -52,27 +55,24 @@ function displayForAddSubject(){
 	});
 }
 
-//funcion desde formulario para nuevo cuatrimestre
-$(document).on('click', '#btnSaveCuat', function(e){
-
-		console.log("entrando a funcion dentro de form")
-
-		e.preventDefault();
-		var datos = $('#newPCForm').serialize();
+$(document).on('submit', '#newPCForm', function(e){
+	e.preventDefault();
+	var datos = $('#newPCForm').serialize();		
 		$.ajax({
 			type: 'POST',
 			url: 'controller/ControladorGestionarCuatrimestre.php',
 			data: datos,
 			success: function(resp){
-				alert(resp);
+				//alert(resp)
+				$('#notificationSuccess').css('display','block')
+				$('#newPCForm')[0].reset();
 			}
 		});
 });
 
+
 //Modificando cuatrimestre
-$(document).on('click', '#btnUpdateCuat', function(e){
-	
-		console.log("entrando a funcion dentro de form")
+$(document).on('submit', '#updatePCForm', function(e){
 
 		e.preventDefault();
 		var datos = $('#updatePCForm').serialize();
@@ -80,29 +80,12 @@ $(document).on('click', '#btnUpdateCuat', function(e){
 			type: 'POST',
 			url: 'controller/ControladorGestionarCuatrimestre.php',
 			data: datos,
-			success: function(resp){
-				displayForEdit();
+			success: function(resp){				
+				$('#notificationSuccess').css('display','block')
 			}
 		});
 });
 
-/*
-$(document).on('click', '#btnSaveCuatMat', function(e){
-	
-		console.log("entrando a funcion dentro de form")
-
-		e.preventDefault();
-		//var datos = $('#newPCForm').serialize();
-		$.ajax({
-			type: 'POST',
-			url: 'controller/ControladorGestionarCuatrimestre.php',
-			data: datos,
-			success: function(resp){
-				alert(resp);
-			}
-		});
-	});
-*/
 
 /****************************Realtime Listar cuatrimestres para modificar info**********************************/
 
@@ -144,7 +127,6 @@ function searchInfoForUpdate(idCuatri){
 			url: 'controller/ControladorGestionarCuatrimestre.php',
 			data: datos,
 			success: function(resp){
-				console.log(resp)
 				$('#render').html(resp);
 			}
 		});
@@ -205,7 +187,6 @@ $(document).on('keyup','#RTSearchSubject',function(e){
 	e.preventDefault();
 	var typeQuery = 'RTMaterias';
 	var campo = $('#RTSearchSubject').val();
-	console.log(campo);
 	var datos = {
 			typeQuery: typeQuery,
 			campo: campo
@@ -225,14 +206,28 @@ $(document).on('keyup','#RTSearchSubject',function(e){
 });
 
 //selecionar materia e incrustarla en tabla
+//Creando elementos con Javascript nativo
 
 function addNewSubject(idMateria, codMateria, nombre){
 
 	var idMateria = idMateria;
 	var codMateria = codMateria;
-	var nombreMateria = nombre; 
+	var nombreMateria = nombre;
+	var aux = true;
 
-	/*** Creando elementos ***/
+	$('input[name^="id_meteria"]').each(function() {
+
+	 	if($(this).val() == idMateria){
+
+	 		aux = false;
+	 		$('#RTSearchSubject').val('');
+			$('#resultadosMaterias').empty();
+			$('#RTSearchSubject').focus();
+	 	}
+
+	});
+	if(aux){
+		/*** Creando elementos ***/
 	var nuevaMateria = document.createElement("tr"),
 
 				nuevoTdId = document.createElement("td"),
@@ -252,22 +247,22 @@ function addNewSubject(idMateria, codMateria, nombre){
 	nuevoInputId.type = "text";
 	nuevoInputId.value = idMateria;
 	nuevoInputId.name = "id_meteria[]";
-	nuevoInputId.className = "form-control text-center code";
-	nuevoInputId.id = "myinput";
+	nuevoInputId.className = "form-control text-center id";
+	nuevoInputId.id = "keyInput";
 	//nuevoInputId.readOnly = true;
 	nuevoInputId.addEventListener("click", eliminarMateriaTabla);
 	//Input para Codigo materia
 	nuevoInputCod.type = "text";
 	nuevoInputCod.value = codMateria;
 	nuevoInputCod.name = "codMateria[]"
-	nuevoInputCod.className = 'form-control text-center pr';
+	nuevoInputCod.className = 'form-control text-center code';
 	nuevoInputCod.readOnly = true;
 	nuevoInputCod.addEventListener("click", eliminarMateriaTabla);
 	//Input para Nombre
 	nuevoInputNombre.type = "text";
 	nuevoInputNombre.value = nombreMateria;
 	nuevoInputNombre.name = "nombreMateria[]";
-	nuevoInputNombre.className = 'form-control text-center desc';
+	nuevoInputNombre.className = 'form-control text-center materia';
 	nuevoInputNombre.readOnly = true;
 	nuevoInputNombre.addEventListener("click", eliminarMateriaTabla);
 
@@ -285,16 +280,27 @@ function addNewSubject(idMateria, codMateria, nombre){
 	$('#text-ref').css('display','none');
 	$('#lista').append(nuevaMateria);
 
-
-
-	
+	$('#contenedor-save-btn').css('display', 'block');
+	} 	
 
 }
 
+//Remover materia de tabla
 function eliminarMateriaTabla(){
+	var auxDel = 0;
+	$(this).closest('tr').remove();
+
+	//Verificamos si elemento exeiste, si no, quitamos boton
+	if ( $("#keyInput").length ) {
+
+	}
+	else{
+		$('#contenedor-save-btn').css('display', 'none');
+	}
 
 }
 
+//Asignar materias al cuatrimestre
 $(document).on('click', '#btnSaveSubjects', function(e){
 
 		e.preventDefault();
@@ -304,32 +310,40 @@ $(document).on('click', '#btnSaveSubjects', function(e){
 			url: 'controller/ControladorGestionarCuatrimestre.php',
 			data: datos,
 			success: function(resp){
-				alert(resp);
+				$('#notificationSuccess').css('display','block')
+				$('#lista').html('');
 			}
 		});
 });
 
-//remover materia de tabla
 
-//guardando campos campos 
+//CSS hover al remover materia de tabla
+$(document).on({
+    mouseenter: function () {
+        //stuff to do on mouse enter
+        $(this).css('background-color', '#EF5350');
+        $(this).css('color', '#fff');
+        $(this).css('text-decoration', 'line-through');        
+    },
+    mouseleave: function () {
+        //stuff to do on mouse leave
+        $(this).css('background-color', '#eee');
+        $(this).css('color', '#555');
+        $(this).css('text-decoration', 'none');
+    }
+}, ".id, .code, .materia");
 
-//ATRR JQ
-/*
-var idMateria = idMateria;
-	var codMateria = codMateria;
-	var nombre = nombre; 
+//Validar fecha inicio/fin de campaña
+function myDate(){
 
-	var tr = $('<tr/>')
-	var td = $('<td/>')
-	var input = $('<input/>');
+	//var minVal = $('#myDateStart').val();
 
-	var inputId = input.
+	var minVal = document.getElementById("myDateStart").value;
+	document.getElementById("myDateEnd").value = minVal;
+	document.getElementById("myDateEnd").min = minVal;
+}
 
-	var inputCodMat = input.attr({
-		value:nombre
-	});
-
-	$('#').
-*/
-
+function backToDisplayForEdit(){
+	displayForEdit();
+}
 

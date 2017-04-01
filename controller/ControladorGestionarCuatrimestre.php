@@ -71,10 +71,13 @@ function handler() {
 	elseif ($typeQuery == "editPC") {
 
 		$campo = $_POST['id_cuatri'];
+		$numero_cuatri = $_POST['numero_cuatri'];
+		$fecha_ini = $_POST['fecha_ini'];
+		$fecha_fin = $_POST['fecha_fin'];
 		$stado_cuatri = $_POST['stado_cuatri'];
 		$zona->stringQuery($campo);
 		//busca info de cuatri
-		$zona->datosEditCuatri($stado_cuatri);
+		$zona->datosEditCuatri($numero_cuatri, $fecha_ini, $fecha_fin, $stado_cuatri);
 		$editCuatri = $zona->edit();
 
 		//Vista form modificar cuatri
@@ -141,27 +144,6 @@ function handler() {
 	}
 
 	/*************************************************************************/
-
-	/*elseif ($typeQuery == "select") {
-		$niveles = $zona->getNivelSistema();
-		
-		$res = json_encode($niveles);
-	}elseif ($typeQuery == "update") {
-		$idProfesore = $_REQUEST['idProfesor'];
-		$zona->stringQuery($idProfesore);
-
-		$nivele = $_REQUEST['nivel'];
-		$matriculae = $_REQUEST['matricula'];
-		$passe = $_REQUEST['contraseña'];
-		$nombrese = $_REQUEST['nombre'];
-		$ap_mate = $_REQUEST['apellidoM'];
-		$ap_pate = $_REQUEST['apellidoP'];
-		$statuse = 1;
-
-		$zona->datos($nivele, $matriculae,$passe,$nombrese,$ap_mate,$ap_pate,$statuse);
-
-		$res = $zona->edit();
-	}*/
 
 	echo $res;
 }

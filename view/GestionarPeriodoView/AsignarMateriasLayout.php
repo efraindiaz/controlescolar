@@ -1,6 +1,13 @@
 <div class="row">
-
-
+	<div class="col-md-6 col-md-offset-3">
+		<div id="notificationSuccess" class="form-group" style="display:none">
+			 <div class="alert alert-success alert-dismissable">
+			    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+			    <strong>Exito!</strong> Se guardo la informacion satisfactoriamente.
+			  </div>
+		</div>
+	</div>
+	
 	<div class="row">
 		<div class="col-md-offset-3 col-md-6">
 			<h2 class="text-center">Asignar Materias</h2>
@@ -59,8 +66,11 @@
 			</div>
 
 	
+			<div id="contenedor-save-btn" class="form-group" style="display:none;">
+				<input type="submit" id="btnSaveSubjects" class="form-control btn-primary"  value="Guardar">
+			</div>
 			<div class="form-group">
-				<input type="submit" id="btnSaveSubjects" class="form-control btn-primary"  value="Guardar" hidden>
+				<input onclick="displayForAddSubject();" type="button" class="form-control btn-success" value="Regresar">
 			</div>
 
 		</form>
