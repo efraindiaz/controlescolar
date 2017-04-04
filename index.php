@@ -90,10 +90,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Gestionar Ciclo Escolar <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="#">Agregar ciclo escolar</a>
+                                <a href="#" class="newCiclo">Agregar ciclo escolar</a>
                             </li>
                             <li>
-                                <a href="#">Editar ciclo escolar</a>
+                                <a href="#" class="editCiclo">Editar ciclo escolar</a>
                             </li>
                         </ul>
                     </li>
@@ -259,6 +259,7 @@
     <script src="public/js/profesores.js"></script>
     <script src="public/js/alumnos.js"></script>
     <script src="public/js/estudiantes.js"></script>
+    <script src="public/js/ciclo.js"></script>
     <!-- Morris Charts JavaScript -->
     <script src="public/js/plugins/morris/raphael.min.js"></script>
     <script src="public/js/plugins/morris/morris.min.js"></script>

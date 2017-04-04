@@ -27,7 +27,7 @@ private function open_connection() {
 	$host = 'localhost';
 	$db = 	'control_escolar';
 	$user = 'root';
-	$pwd = 	'';
+	$pwd = 	'22dw9v5tHPebJtww';
 
 	try {		
 		$this->conn = new PDO('mysql:host='.$host.';dbname='.$db, $user, $pwd);
